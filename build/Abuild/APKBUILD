@@ -3,7 +3,7 @@
 # Maintainer: Ethan Leir <eleir@qnx.com>
 pkgname=utf8proc
 pkgver=2.10.0
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="Clean C library for processing UTF-8 Unicode data"
 url="https://github.com/JuliaStrings/utf8proc"
 arch="all"
@@ -20,6 +20,7 @@ package() {
     make DESTDIR="$pkgdir" prefix=/usr install
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 92a771606bcbecbb86c8d101931bc042dc7035938a665a7a449c2d8a7d3255df9df9c77c5cab0fc9dcaecb04be970149f60bfff463fc813e96727b7035ca9bb4  utf8proc-2.10.0.tar.gz
 "
